@@ -11,11 +11,11 @@ interface ListComponentProps {
 const ListComponent = ({ items, isUpcoming, onDone }: ListComponentProps) => {
   return (
     <div className={`${styles.list} ${isUpcoming ? styles.listUpcoming : styles.listDone}`}>
-      {isUpcoming ? 'Upcoming' : 'Done'}
+      <h2>{isUpcoming ? 'Upcoming' : 'Done'}</h2>
       <ul>
-        {items.map((item) => (
-          <ListItem key={item.id} todo={item.todo} completed={item.completed} onDone={() => onDone(item.id)} />
-        ))}
+        {items.length ? items.map((item) => (
+          <ListItem key={item.id} todo={item} onDone={() => onDone(item.id)} />
+        )) : <p>{isUpcoming ? `You've done them all, add a new one or bas in a warm glow of a job well done` : `Get to it!`}</p>}
       </ul>
     </div>
   );

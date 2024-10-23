@@ -1,14 +1,16 @@
+import styles from './listItem.module.css';
+import type { Todo } from '../../App';
+
 interface ListItemProps {
-  todo: string;
-  completed: boolean;
+  todo: Todo;
   onDone: () => void;
 }
 
-const ListItem = ({ todo, completed, onDone }: ListItemProps) => {
+const ListItem = ({ todo, onDone }: ListItemProps) => {
   return (
-    <li>
-      <span>{todo}</span>
-      <button onClick={onDone}>{completed ? 'Oops back in the list' : 'Mark done'}</button>
+    <li className={styles.listItem}>
+      <span>{todo.todo}</span>
+      <button onClick={onDone}>{todo.completed ? 'Oops back in the list' : 'Mark done'}</button>
     </li>
   );
 };

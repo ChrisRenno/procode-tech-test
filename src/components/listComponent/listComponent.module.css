@@ -1,12 +1,13 @@
 .list {
-  border: 1px solid #ccc;
+  border-radius: 8px;
   padding: 24px 24px 32px;
+  margin-bottom: 32px;
 }
 
 .listUpcoming {
-  background-color: #f9f9f9;
+  background-color: rgba(254, 94, 65, 0.5);
 }
 
 .listDone {
-  background-color: #000;
+  background-color: rgba(88, 255, 161, 0.5);
 }

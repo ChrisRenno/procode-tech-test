@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import './App.css'
+// import './App.css'
+import styles from './App.module.css'
 
 import Header from './components/header/header' 
 import ListComponent from './components/listComponent/listComponent'
@@ -59,14 +60,21 @@ function App() {
 
   return (
     <main>
-    <Header />
-    <ListComponent items={todos.filter(todo => todo.completed === false)} isUpcoming={true} onDone={markDone} />
-    <ListComponent items={todos.filter(todo => todo.completed === true)} isUpcoming={false}  onDone={markDone} />
-
-    <p>Add a new item</p>
+      <Header />
+      <div className={styles.container}>
       <AddTodo addTodo={addTodo} />
-
-   {!todos.length && <button onClick={() => fetchDummyTodos()}>or + Dummy Data</button>}
+      {todos.length ?
+        <>
+          <ListComponent items={todos.filter(todo => todo.completed === false)} isUpcoming={true} onDone={markDone} />
+          <ListComponent items={todos.filter(todo => todo.completed === true)} isUpcoming={false}  onDone={markDone} />
+        </>
+        : <p>No todos yet</p>
+        }
+     
+      {!todos.length && 
+        <button onClick={() => fetchDummyTodos()}>+ Dummy Data</button>
+      }
+    </div>
     </main>
   )
 }

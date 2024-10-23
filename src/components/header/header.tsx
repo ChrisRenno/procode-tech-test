@@ -1,8 +1,8 @@
-
+import styles from './header.module.css';
 
 const Header = () => {
   return (
-    <header>
+    <header className={styles.header}>
       <h1>Procode Tech Test</h1>
     </header>
   );

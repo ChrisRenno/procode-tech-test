@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import './addTodo.css';
 
 interface AddTodoProps {
   addTodo: (todo: string) => void;
@@ -23,7 +24,7 @@ const AddTodo  = ({ addTodo }: AddTodoProps) => {
         onChange={(e) => setTodo(e.target.value)}
         placeholder="Add a new todo"
       />
-      <button type="submit">Add</button>
+      <button type="submit" disabled={!todo.trim()}>Add</button>
     </form>
   );
 };
