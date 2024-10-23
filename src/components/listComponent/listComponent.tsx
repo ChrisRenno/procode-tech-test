@@ -14,12 +14,7 @@ const ListComponent = ({ items, isUpcoming, onDone }: ListComponentProps) => {
       {isUpcoming ? 'Upcoming' : 'Done'}
       <ul>
         {items.map((item) => (
-          <>
-          <li key={item.id} className={item.completed ? 'done' : 'not-done'}>
-            {item.todo}
-          </li>
-          <ListItem todo={item.todo} onDone={() => onDone(item.id)} />
-          </>
+          <ListItem key={item.id} todo={item.todo} completed={item.completed} onDone={() => onDone(item.id)} />
         ))}
       </ul>
     </div>
