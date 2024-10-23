@@ -1,50 +1,14 @@
-# React + TypeScript + Vite
+# Procode Tech Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Please create a TODO List application, in React, which users can use to add, view and delete TODO items (called “TODOs”). Example TODOs in the list might be:
 
-Currently, two official plugins are available:
+•        Wash the car
+•        Mow the lawn
+•        Do the washing-up 
+ 
+When starting the application, the list should be empty. There should be a form for adding new TODOs, somewhere to view all TODOs, and a way to tick off (i.e. remove) TODOs. 
+ 
+This project is intended to be a way for you to demonstrate your coding abilities, and your ability to create user interfaces. The code and the UI do not need to be complicated, and this should take under 3 hours. If you can, please use TypeScript. Similarly, if you can, use Redux to store the TODOs. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# dev Notes
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
