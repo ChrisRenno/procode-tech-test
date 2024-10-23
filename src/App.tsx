@@ -5,6 +5,7 @@ import styles from './App.module.css'
 import Header from './components/header/header' 
 import ListComponent from './components/listComponent/listComponent'
 import AddTodo from './components/addTodo/addTodo';
+import NoTodoFound from './components/noTodoFound/noTodoFound';
 
 export interface Todo {
   todo: string;
@@ -13,21 +14,15 @@ export interface Todo {
 }
 
 function App() {
-  // const [count, setCount] = useState(0)
-
-  const [todos, setTodos] = useState<Todo[]>([])
-
+  const [todos, setTodos] = useState<Todo[]>([]);
+  
   const fetchDummyTodos = async () => {
-
     const dummyData = await fetch('https://dummyjson.com/todos/random/10')
       .then(res => res.json());
-
       dummyData.forEach((todo: Todo) => {
         todo.completed = false;
       });
-
     setTodos(dummyData);
-
   }
 
   const addTodo = (todo: string) => {
@@ -44,7 +39,6 @@ function App() {
             completed: false
           }
         }
-
         return {
           ...todo,
           completed: true
@@ -56,8 +50,6 @@ function App() {
     setTodos(newTodos);
   }
 
-
-
   return (
     <main>
       <Header />
@@ -68,15 +60,11 @@ function App() {
           <ListComponent items={todos.filter(todo => todo.completed === false)} isUpcoming={true} onDone={markDone} />
           <ListComponent items={todos.filter(todo => todo.completed === true)} isUpcoming={false}  onDone={markDone} />
         </>
-        : <p>No todos yet</p>
+        : <NoTodoFound fetchDummyTodos={fetchDummyTodos} />
         }
-     
-      {!todos.length && 
-        <button onClick={() => fetchDummyTodos()}>+ Dummy Data</button>
-      }
     </div>
     </main>
   )
 }
 
-export default App
+export default App;

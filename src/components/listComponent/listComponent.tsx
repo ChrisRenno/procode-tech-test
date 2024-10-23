@@ -15,7 +15,7 @@ const ListComponent = ({ items, isUpcoming, onDone }: ListComponentProps) => {
       <ul>
         {items.length ? items.map((item) => (
           <ListItem key={item.id} todo={item} onDone={() => onDone(item.id)} />
-        )) : <p>{isUpcoming ? `You've done them all, add a new one or bas in a warm glow of a job well done` : `Get to it!`}</p>}
+        )) : <p>{isUpcoming ? `You've done them all, add a new one or bask in a warm glow of a job well done` : `Get to it!`}</p>}
       </ul>
     </div>
   );

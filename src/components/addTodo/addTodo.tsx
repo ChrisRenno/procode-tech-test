@@ -10,10 +10,8 @@ const AddTodo  = ({ addTodo }: AddTodoProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (todo.trim()) {
-      addTodo(todo);
-      setTodo('');
-    }
+    addTodo(todo);
+    setTodo('');
   };
 
   return (
