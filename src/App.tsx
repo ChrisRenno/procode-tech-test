@@ -5,13 +5,8 @@ import AddTodo from './components/addTodo/addTodo';
 import NoTodoFound from './components/noTodoFound/noTodoFound';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from './app/store';
-import { addTodo, markDone } from './features/todos/todosSlice';
-
-export interface Todo {
-  todo: string;
-  completed: boolean;
-  id: number;
-}
+import { addTodo, markItem } from './features/todos/todosSlice';
+import type { Todo } from './app/types';
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -24,8 +19,8 @@ function App() {
       <AddTodo addTodo={(todo) => dispatch(addTodo(todo))} />
       {todos.length ?
         <>
-          <ListComponent items={todos.filter(todo => todo.completed === false)} isUpcoming={true} onDone={(id) => dispatch(markDone(id))} />
-          <ListComponent items={todos.filter(todo => todo.completed === true)} isUpcoming={false}  onDone={(id) => dispatch(markDone(id))} />
+          <ListComponent items={todos.filter(todo => todo.completed === false)} isUpcoming={true} onDone={(id) => dispatch(markItem(id))} />
+          <ListComponent items={todos.filter(todo => todo.completed === true)} isUpcoming={false}  onDone={(id) => dispatch(markItem(id))} />
         </>
         : <NoTodoFound />
         }

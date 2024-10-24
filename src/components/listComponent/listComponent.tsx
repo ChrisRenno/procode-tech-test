@@ -1,6 +1,6 @@
 import styles from './listComponent.module.css';
 import ListItem from '../listItem/listItem';
-import type { Todo } from '../../App';
+import type { Todo } from '../../app/types';
 
 interface ListComponentProps {
   isUpcoming: boolean;
@@ -14,7 +14,7 @@ const ListComponent = ({ items, isUpcoming, onDone }: ListComponentProps) => {
       <h2>{isUpcoming ? 'Upcoming' : 'Done'}</h2>
       <ul>
         {items.length ? items.map((item) => (
-          <ListItem key={item.id} todo={item} onDone={() => onDone(item.id)} />
+          <ListItem key={item.id} todo={item} onDone={() => onDone(item.id)} isUpcoming={isUpcoming} />
         )) : <p>{isUpcoming ? `You've done them all, add a new one or bask in a warm glow of a job well done` : `Get to it!`}</p>}
       </ul>
     </div>
