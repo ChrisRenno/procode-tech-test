@@ -7,4 +7,6 @@ form {
 
 input {
   margin-right: 24px;
+  padding: 2px 4px;
+  font-size: inherit;
 }
