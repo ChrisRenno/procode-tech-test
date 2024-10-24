@@ -1,6 +1,13 @@
 .list {
   border: 2px solid #6C6F7F;
   border-radius: 8px;
-  padding: 24px 24px 32px;
-  margin-bottom: 32px;
+  padding: 12px 12px 16px;
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    padding: 24px 24px 32px;
+    margin-bottom: 32px;
+  }
 }
